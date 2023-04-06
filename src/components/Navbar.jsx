@@ -1,0 +1,74 @@
+import React, { useState } from "react";
+import { GoLocation } from "react-icons/go";
+import { FiMenu } from "react-icons/fi";
+import { AiFillBell, AiOutlineHome, AiOutlinePoweroff, AiOutlineSync } from "react-icons/ai";
+import { BiShoppingBag } from "react-icons/bi";
+import { RiHistoryLine } from "react-icons/ri";
+import { MdOutlineLeaderboard } from "react-icons/md";
+import { RxDashboard } from "react-icons/rx";
+import { GrRefresh } from "react-icons/gr";
+import ProfileImage from "../assets/userImage.svg";
+
+function QuickOptions(props){
+    return(
+        <div className={`flex items-center gap-3 px-3 py-2 text-sm hover:text-brand hover:bg-brand/10 cursor-pointer ${props.selected && "text-brand bg-brand/10"}`}>
+            {props.children}
+        </div>
+    )
+}
+
+function NavOptions(props){
+    return (
+        <div className={`absolute w-[19rem] bg-white rounded-br-md transform transition-all duration-700 ${ !props.navOpen && "-translate-x-[19rem]"}`} id="nav-options">
+            <div className="m-3 mt-2">
+                <img src={ProfileImage} alt="Profile image" className="w-12 lg:w-16"/>
+                <div className="text-lg font-medium">Sarika Seghal</div>
+                <div className="text-sm text-light-grey-text">Senior beauty analyst</div>
+            </div>
+            <div className="flex items-center gap-1 pl-2.5 pr-1 py-2 border-y-[0.5px] border-brand">
+                <GoLocation className="text-brand" />
+                <div className="line-clamp-1 text-xs">
+                    Health & Glow, 18th Main Road, HSR, Sector  II 
+                </div>
+            </div>
+            <div className="pb-1 border-b-[0.5px] border-brand">
+                <div className="ml-3 mt-2 mb-1 text-light-grey-text text-xs">QUICK ACCESS</div>
+                <QuickOptions selected={true}> <AiOutlineHome />Home </QuickOptions>
+                <QuickOptions> <BiShoppingBag />Sales </QuickOptions>
+                <QuickOptions> <RiHistoryLine />Sales history </QuickOptions>
+                <QuickOptions> <MdOutlineLeaderboard />Leaderboards </QuickOptions>
+                <QuickOptions> <RxDashboard />Dashboard </QuickOptions>
+                <QuickOptions> <AiOutlinePoweroff />Logout </QuickOptions>
+            </div>
+            <div>
+                <div className="mx-3 mt-2 mb-1">
+                    <div className="text-xs text-light-grey-text">INVENTORY SYNC</div>
+                    <div className="text-brand text-xs">Last sync at 12.15pm , 12 oct</div>
+                </div>
+            </div>
+            <div className="mb-1">
+                <QuickOptions> <AiOutlineSync />Sync now </QuickOptions>
+                <QuickOptions> <GrRefresh />Refresh products </QuickOptions>
+            </div>
+        </div>
+    )
+}
+
+export default function Navbar(){
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    return (
+        <nav className="relative bg-green-200">
+            <div className="h-14 w-full flex items-center text-sm bg-brand text-white">
+                <FiMenu className="text-3xl ml-2 xs:ml-4 sm:ml-5 cursor-pointer" onClick={() => {setIsNavOpen(!isNavOpen)}} />
+                <div className="w-[0.5px] h-5 bg-[#C1C6C5] mx-2 sm:mx-3"></div>
+                <GoLocation className="text-lg mr-1 md:mr-2"/>
+                <div className="line-clamp-1 mr-2 text-xs xs:text-sm md:text-base">
+                    Health & Glow, 18th Main Road, HSR, Sector  II 
+                </div>
+                <AiFillBell className="ml-auto mr-2 text-2xl cursor-pointer"/>
+            </div>
+            <NavOptions className="" navOpen={isNavOpen} />
+        </nav>
+    )
+}
