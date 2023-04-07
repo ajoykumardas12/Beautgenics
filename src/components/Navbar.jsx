@@ -67,7 +67,7 @@ export default function Navbar(props){
     return (
         <nav className="relative">
             <div className="h-14 w-full flex items-center text-sm bg-brand text-white">
-                <FiMenu className="text-3xl ml-2 xs:ml-4 sm:ml-5 cursor-pointer" onClick={props.handleIsNavOpen} />
+                <FiMenu className="text-2xl xs:text-3xl ml-2 xs:ml-4 sm:ml-5 cursor-pointer" onClick={props.handleIsNavOpen} />
                 <div className="w-[0.5px] h-5 bg-[#C1C6C5] mx-2 sm:mx-3"></div>
                 {(path.pathname === "/home") ? (
                     <div className="flex items-center ">
@@ -77,13 +77,13 @@ export default function Navbar(props){
                         </div>
                     </div>
                 ) : (
-                    <div className="line-clamp-1 mr-2 text-xs xs:text-sm md:text-base">
+                    <div className="line-clamp-1 mr-2 text-base">
                             {titleCase(path.pathname)}
                     </div>
                 )}
 
 
-                <AiFillBell className="ml-auto mr-2 text-2xl cursor-pointer"/>
+                <AiFillBell className="ml-auto mr-2 text-xl xs:text-2xl cursor-pointer"/>
             </div>
             <NavOptions className="" navOpen={props.isNavOpen} handleIsNavOpen={props.handleIsNavOpen}/>
         </nav>

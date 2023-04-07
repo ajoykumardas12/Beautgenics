@@ -15,12 +15,12 @@ const list = ["August", "September", "October"];
 
 function ContactCollectionStat(props){
     return (
-        <div className="flex flex-row items-center mx-3 p-1 rounded hover:bg-border cursor-pointer">
+        <div className="flex flex-row items-center mx-2 p-2 rounded hover:bg-border cursor-pointer">
             <div className="h-10 w-10 flex items-center justify-center bg-[#F4F4F4] rounded text-2xl text-[#323232] mr-3">
                 {props.children}
             </div>
             <div className="flex flex-col mr-3">
-                <div className="text-lg">{props.statNumber}</div>
+                <div className="text-lg font-medium">{props.statNumber}</div>
                 <div className="text-sm text-[#5E6265]">{props.stat}</div>
             </div>
             <div className="ml-auto">
@@ -35,7 +35,7 @@ export default function Dashboard(){
     const [selectedOption, setSelectedOption] = useState("October");
 
     return(
-        <div className="w-full">
+        <div className="">
             <div className="flex relative">
                 <div className="w-full flex flex-col items-center justify-center mx-3 my-4">
                     <img src={UserImage} alt="Profile image" className="w-20"/>
@@ -48,7 +48,7 @@ export default function Dashboard(){
                             className="px-2 min-w-[4rem] h-6 box-border flex items-center justify-between gap-1 text-xs rounded-2xl tracking-wider border-light-grey-text duration-300" 
                             onClick={() => setIsDDOpen((prev) => !prev)}
                         >
-                            <FiCalendar />
+                            <FiCalendar className="text-brand" />
                             {selectedOption}
                             {!isDDOpen 
                                 ? <AiFillCaretDown className="text-[10px]" />
@@ -65,7 +65,7 @@ export default function Dashboard(){
                 </div>
             </div>
             <div className="w-full h-1 bg-[#F3F3F3]"></div>
-            <div className="flex flex-col mx-3 lg:items-center">
+            <div className="flex flex-col mx-3 md:items-center tracking-tight">
                 <div className="text-lg text-light-grey-text font-medium">Current sales</div>
                 <div className="flex gap-1">
                     <div className="text-[28px] font-medium"> <span className="text-brand">$</span> 87,185</div>
@@ -75,7 +75,7 @@ export default function Dashboard(){
             </div>
             <div className="w-full flex items-center justify-center">
                 <div className="flex flex-col justify-center w-full max-w-[31rem] my-5 text-[#5E6265]">
-                    <div className="flex items-center justify-around text-xs mb-3">
+                    <div className="flex items-center gap-4 md:justify-center text-xs mb-3 ml-3 md:ml-0">
                         <div className="flex items-center justify-center gap-1">
                             <BsCircleFill className="text-brand"/>
                             Current sales
@@ -89,7 +89,7 @@ export default function Dashboard(){
                             Last month sales
                         </div>
                     </div>
-                    <img src={DashboardGrahp1} alt="sales graph" className="w-full h-52"/>
+                    <img src={DashboardGrahp1} alt="sales graph" className="w-full h-52 cursor-pointer"/>
                     <div className="flex items-center justify-between text-xs mx-2">
                         <div>week 1</div>
                         <div>week 2</div>
@@ -102,7 +102,7 @@ export default function Dashboard(){
             <div className="w-full h-1 bg-[#F3F3F3]"></div>
             <div className="flex flex-col items-center my-5">
                 <div className="flex flex-col items-center">
-                    <img src={DashboardGrahp2} alt="contact collection graph" />
+                    <img src={DashboardGrahp2} alt="contact collection graph" className="cursor-pointer"/>
                     <div className="text-lg text-light-grey-text">Contact collection</div>
                     <div className="flex gap-1 text-[28px] font-medium">
                         <div>17,185</div>
@@ -111,7 +111,7 @@ export default function Dashboard(){
                     <div className="text-xs text-light-grey-text">Compared to 15,415 last month</div>
                 </div>
                 <div className="w-full flex flex-col items-center my-5">
-                    <div className="flex flex-col gap-3 w-full sm:w-[95%] md:w-[80%] lg:w-[65%] xl:w-[55%]">
+                    <div className="flex flex-col gap-3 w-full">
                         <ContactCollectionStat statNumber="17,185" stat="Contact numbers collected" statGraph={ContactGraph1}>
                             <MdOutlineContacts />
                         </ContactCollectionStat>

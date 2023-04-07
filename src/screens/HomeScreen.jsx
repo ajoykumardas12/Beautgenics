@@ -119,7 +119,7 @@ function UserSummary(props){
 function Service(props){
     return (
         <div className="flex flex-col items-center justify-center gap-1">
-            <div className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 flex items-center justify-center rounded-full bg-brand cursor-pointer">
+            <div className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 flex items-center justify-center rounded-full bg-brand hover:bg-brand/90 cursor-pointer">
                 <img src={props.icon} alt={props.icon} className="w-[60%] h-[60%]" />
             </div>
             <div className="text-[0.6rem] md:text-xs cursor-pointer line-clamp-1">{props.serviceName}</div>
@@ -204,7 +204,7 @@ export default function HomeScreen(){
                 <div className="my-2 flex flex-col gap-1 md:gap-2">
                     <div className="text-sm sm:text-base md:text-lg font-semibold">CUSTOMER SAFETY IS OUR PRIORITY!</div>
                     <div className="text-xs sm:text-sm md:text-base text-grey-text">Follow our safety guidelines to ensure a safe experience for the Customer.</div>
-                    <Button cls="h-7 sm:h-8 md:h-9 lg:h-10 px-2 w-fit bg-brand rounded-sm text-white text-xs md:text-sm cursor-pointer">
+                    <Button cls="h-7 sm:h-8 md:h-9 lg:h-10 px-2 w-fit bg-brand rounded-sm text-white text-xs md:text-sm cursor-pointer hover:bg-brand/80">
                         Safety Guidelines
                     </Button>
                 </div>
