@@ -2,11 +2,14 @@ import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import Logo from "../assets/Logo.svg";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 export default function SignInPage(){
     return(
         <div className="h-screen w-full xs:w-[85%] sm:w-[75%] md:w-[60%] lg:w-[50%] flex flex-col font-roboto">
-            <BsArrowLeft className="mt-6 mx-6 text-2xl"/>
+            <Link to="/">
+                <BsArrowLeft className="mt-6 mx-6 text-2xl"/>
+            </Link>
             <img src={Logo} alt="Logo" className="h-16 w-16 ml-4 mt-12"/>
             <div className="mx-6 mt-12">
                 <div className="text-2xl font-semibold">
@@ -25,9 +28,11 @@ export default function SignInPage(){
                         <input type="checkbox" name="remember-login" id="" className="w-4 h-4 accent-brand bg-brand border-brand rounded outline-2 outline-grey-text cursor-pointer" />
                         <label htmlFor="">Remember my login info</label>
                     </div>
-                    <Button cls="h-12 w-full bg-brand text-white mt-7 rounded-md">
-                        Sign in
-                    </Button>
+                    <Link to="/home">
+                        <Button cls="h-12 w-full bg-brand text-white mt-7 rounded-md">
+                            Sign in
+                        </Button>
+                    </Link>
                     <div className="text-[15px] self-center mt-5">
                         Don’t have an account? <span className="text-brand cursor-pointer">Signup</span>
                     </div>

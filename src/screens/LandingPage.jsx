@@ -3,6 +3,7 @@ import Logo from "../assets/Logo.svg";
 import Button from "../components/Button";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
     return (
@@ -27,9 +28,9 @@ export default function LandingPage() {
                         <BsApple />
                         Continue with apple
                     </Button>
-                    <div className="text-sm">
+                    <Link className="text-sm" to="/login">
                         Already have an account? <span className="text-brand cursor-pointer">Sign in</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

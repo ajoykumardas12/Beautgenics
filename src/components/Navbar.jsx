@@ -8,18 +8,21 @@ import { MdOutlineLeaderboard } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
 import { GrRefresh } from "react-icons/gr";
 import ProfileImage from "../assets/userImage.svg";
+import { Link, useLocation } from "react-router-dom";
 
 function QuickOptions(props){
+    const path = useLocation();
+
     return(
-        <div className={`flex items-center gap-3 px-3 py-2 text-sm hover:text-brand hover:bg-brand/10 cursor-pointer ${props.selected && "text-brand bg-brand/10"}`}>
+        <Link to={props.path} className={`flex items-center gap-3 px-3 py-2 text-sm hover:text-brand hover:bg-brand/10 cursor-pointer ${path.pathname === props.path ? "text-brand bg-brand/10" : ""}`} onClick={props.handleIsNavOpen}>
             {props.children}
-        </div>
+        </Link>
     )
 }
 
 function NavOptions(props){
     return (
-        <div className={`absolute w-[19rem] bg-white rounded-br-md transform transition-all duration-700 ${ !props.navOpen && "-translate-x-[19rem]"}`} id="nav-options">
+        <div className={`absolute z-10 w-[19rem] bg-white rounded-br-md transform transition-all duration-700 ${ !props.navOpen && "-translate-x-[19rem]"}`} id="nav-options">
             <div className="m-3 mt-2">
                 <img src={ProfileImage} alt="Profile image" className="w-12 lg:w-16"/>
                 <div className="text-lg font-medium">Sarika Seghal</div>
@@ -33,12 +36,12 @@ function NavOptions(props){
             </div>
             <div className="pb-1 border-b-[0.5px] border-brand">
                 <div className="ml-3 mt-2 mb-1 text-light-grey-text text-xs">QUICK ACCESS</div>
-                <QuickOptions selected={true}> <AiOutlineHome />Home </QuickOptions>
-                <QuickOptions> <BiShoppingBag />Sales </QuickOptions>
+                <QuickOptions path="/home" handleIsNavOpen={props.handleIsNavOpen}> <AiOutlineHome />Home </QuickOptions>
+                <QuickOptions > <BiShoppingBag />Sales </QuickOptions>
                 <QuickOptions> <RiHistoryLine />Sales history </QuickOptions>
-                <QuickOptions> <MdOutlineLeaderboard />Leaderboards </QuickOptions>
-                <QuickOptions> <RxDashboard />Dashboard </QuickOptions>
-                <QuickOptions> <AiOutlinePoweroff />Logout </QuickOptions>
+                <QuickOptions path="/leaderboards" handleIsNavOpen={props.handleIsNavOpen}> <MdOutlineLeaderboard />Leaderboards </QuickOptions>
+                <QuickOptions path="/dashboard" handleIsNavOpen={props.handleIsNavOpen}> <RxDashboard />Dashboard </QuickOptions>
+                <QuickOptions path="/" handleIsNavOpen={props.handleIsNavOpen}> <AiOutlinePoweroff />Logout </QuickOptions>
             </div>
             <div>
                 <div className="mx-3 mt-2 mb-1">
@@ -54,13 +57,11 @@ function NavOptions(props){
     )
 }
 
-export default function Navbar(){
-    const [isNavOpen, setIsNavOpen] = useState(false);
-
+export default function Navbar(props){
     return (
-        <nav className="relative bg-green-200">
+        <nav className="relative">
             <div className="h-14 w-full flex items-center text-sm bg-brand text-white">
-                <FiMenu className="text-3xl ml-2 xs:ml-4 sm:ml-5 cursor-pointer" onClick={() => {setIsNavOpen(!isNavOpen)}} />
+                <FiMenu className="text-3xl ml-2 xs:ml-4 sm:ml-5 cursor-pointer" onClick={props.handleIsNavOpen} />
                 <div className="w-[0.5px] h-5 bg-[#C1C6C5] mx-2 sm:mx-3"></div>
                 <GoLocation className="text-lg mr-1 md:mr-2"/>
                 <div className="line-clamp-1 mr-2 text-xs xs:text-sm md:text-base">
@@ -68,7 +69,7 @@ export default function Navbar(){
                 </div>
                 <AiFillBell className="ml-auto mr-2 text-2xl cursor-pointer"/>
             </div>
-            <NavOptions className="" navOpen={isNavOpen} />
+            <NavOptions className="" navOpen={props.isNavOpen} handleIsNavOpen={props.handleIsNavOpen}/>
         </nav>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 import { FiMessageSquare } from "react-icons/fi";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
@@ -22,6 +23,46 @@ import { BsDot, BsThreeDotsVertical } from "react-icons/bs";
 
 const list = ["Trending", "Latest", "Top"];
 const blogData = [
+    {
+        title: "How does customer service impact sales directly - A thread",
+        author: "Anisha seghal",
+        date: "Aug,01,2020",
+        readingTime: "5 mins",
+        stars: "4",
+        likes: "12m",
+        comments: "2.54k",
+        image: BlogImage1
+    },
+    {
+        title: "Why are sales?",
+        author: "Cavid beckham",
+        date: "Aug,01,2020",
+        readingTime: "5 mins",
+        stars: "4",
+        likes: "12m",
+        comments: "2.54k",
+        image: BlogImage2
+    },
+    {
+        title: "How does customer service impact sales directly - A thread",
+        author: "Anisha seghal",
+        date: "Aug,01,2020",
+        readingTime: "5 mins",
+        stars: "4",
+        likes: "12m",
+        comments: "2.54k",
+        image: BlogImage1
+    },
+    {
+        title: "Why are sales?",
+        author: "Cavid beckham",
+        date: "Aug,01,2020",
+        readingTime: "5 mins",
+        stars: "4",
+        likes: "12m",
+        comments: "2.54k",
+        image: BlogImage2
+    },
     {
         title: "How does customer service impact sales directly - A thread",
         author: "Anisha seghal",
@@ -133,7 +174,6 @@ export default function HomeScreen(){
     const [selectedOption, setSelectedOption] = useState("Trending");
     return (
         <div className="w-full font-roboto">
-            <Navbar />
             <UserSummary name="Sarika" position="Senior Beauty Analyst" progress="71"/>
             <div className="w-full h-[1px] bg-[#C1C6C5]"></div>
             <div className="m-4">
@@ -144,8 +184,12 @@ export default function HomeScreen(){
                 <div className="grid grid-cols-4 gap-3 mt-1">
                     <Service icon={SalesIcon} serviceName="Sales" />
                     <Service icon={SalesHistoryIcon} serviceName="Sales History" />
-                    <Service icon={DashboardIcon} serviceName="Dashboard" />
-                    <Service icon={LeaderboardsIcon} serviceName="Leaderboards" />
+                    <Link to="/dashboard">
+                        <Service icon={DashboardIcon} serviceName="Dashboard" />
+                    </Link>
+                    <Link to="/leaderboards">
+                        <Service icon={LeaderboardsIcon} serviceName="Leaderboards" />
+                    </Link>
                     <Service icon={AttendenceIcon} serviceName="Attendence" />
                     <Service icon={StockIcon} serviceName="Stock" />
                     <Service icon={CouponIcon} serviceName="Offers & Coupons" />
