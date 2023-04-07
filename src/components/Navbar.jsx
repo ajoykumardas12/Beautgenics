@@ -22,19 +22,19 @@ function QuickOptions(props){
 
 function NavOptions(props){
     return (
-        <div className={`absolute z-10 w-[19rem] bg-white rounded-br-md transform transition-all duration-700 ${ !props.navOpen && "-translate-x-[19rem]"}`} id="nav-options">
+        <div className={`absolute z-10 w-[19rem] md:w-[22rem] lg:w-[25rem] bg-white rounded-br-md transform transition-all duration-700 ${ !props.navOpen && "-translate-x-[19rem] md:-translate-x-[22rem] lg:-translate-x-[25rem]"}`} id="nav-options">
             <div className="m-3 mt-2">
                 <img src={ProfileImage} alt="Profile image" className="w-12 lg:w-16"/>
-                <div className="text-lg font-medium">Sarika Seghal</div>
-                <div className="text-sm text-light-grey-text">Senior beauty analyst</div>
+                <div className="text-lg md:text-lg font-medium">Sarika Seghal</div>
+                <div className="text-sm md:text-base text-light-grey-text">Senior beauty analyst</div>
             </div>
             <div className="flex items-center gap-1 pl-2.5 pr-1 py-2 border-y-[0.5px] border-brand">
                 <GoLocation className="text-brand" />
-                <div className="line-clamp-1 text-xs">
+                <div className="line-clamp-1 text-xs md:text-sm">
                     Health & Glow, 18th Main Road, HSR, Sector  II 
                 </div>
             </div>
-            <div className="pb-1 border-b-[0.5px] border-brand">
+            <div className="pb-1 border-b-[0.5px] border-brand md:text-base">
                 <div className="ml-3 mt-2 mb-1 text-light-grey-text text-xs">QUICK ACCESS</div>
                 <QuickOptions path="/home" handleIsNavOpen={props.handleIsNavOpen}> <AiOutlineHome />Home </QuickOptions>
                 <QuickOptions > <BiShoppingBag />Sales </QuickOptions>

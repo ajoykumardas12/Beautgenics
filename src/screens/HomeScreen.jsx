@@ -198,7 +198,7 @@ export default function HomeScreen(){
             </div>
             <div className="w-full h-1 bg-[#C1C6C5]"></div>
             <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3 mx-4">
-                <div className="min-w-[38%]">
+                <div className="min-w-[38%] sm:min-w-[36%] md:min-w-[33%] lg:min-w-[30%] ">
                     <img src={WashingHandsImage} alt="Washing hands" className="w-full" />
                 </div>
                 <div className="my-2 flex flex-col gap-1 md:gap-2">
