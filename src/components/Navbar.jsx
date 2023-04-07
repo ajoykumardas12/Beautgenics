@@ -10,6 +10,10 @@ import { GrRefresh } from "react-icons/gr";
 import ProfileImage from "../assets/userImage.svg";
 import { Link, useLocation } from "react-router-dom";
 
+function titleCase(str) {
+    return str.charAt(1).toUpperCase() + str.slice(2);
+}
+
 function QuickOptions(props){
     const path = useLocation();
 
@@ -58,15 +62,27 @@ function NavOptions(props){
 }
 
 export default function Navbar(props){
+    const path = useLocation();
+
     return (
         <nav className="relative">
             <div className="h-14 w-full flex items-center text-sm bg-brand text-white">
                 <FiMenu className="text-3xl ml-2 xs:ml-4 sm:ml-5 cursor-pointer" onClick={props.handleIsNavOpen} />
                 <div className="w-[0.5px] h-5 bg-[#C1C6C5] mx-2 sm:mx-3"></div>
-                <GoLocation className="text-lg mr-1 md:mr-2"/>
-                <div className="line-clamp-1 mr-2 text-xs xs:text-sm md:text-base">
-                    Health & Glow, 18th Main Road, HSR, Sector  II 
-                </div>
+                {(path.pathname === "/home") ? (
+                    <div className="flex items-center ">
+                        <GoLocation className="text-lg mr-1 md:mr-2"/>
+                        <div className="line-clamp-1 mr-2 text-xs xs:text-sm md:text-base">
+                            Health & Glow, 18th Main Road, HSR, Sector  II 
+                        </div>
+                    </div>
+                ) : (
+                    <div className="line-clamp-1 mr-2 text-xs xs:text-sm md:text-base">
+                            {titleCase(path.pathname)}
+                    </div>
+                )}
+
+
                 <AiFillBell className="ml-auto mr-2 text-2xl cursor-pointer"/>
             </div>
             <NavOptions className="" navOpen={props.isNavOpen} handleIsNavOpen={props.handleIsNavOpen}/>

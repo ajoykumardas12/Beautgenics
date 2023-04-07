@@ -170,12 +170,12 @@ function BlogPost(props){
 }
 
 export default function HomeScreen(){
-    const [isOpen, setIsOpen] = useState(false);
+    const [isDDOpen, setIsDDOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("Trending");
     return (
         <div className="w-full font-roboto">
             <UserSummary name="Sarika" position="Senior Beauty Analyst" progress="71"/>
-            <div className="w-full h-[1px] bg-[#C1C6C5]"></div>
+            <div className="w-full h-[1px] bg-[#f3f3f3]"></div>
             <div className="m-4">
                 <div className="flex justify-between items-center">
                     <div className="text-lg md:text-xl">Services</div>
@@ -196,7 +196,7 @@ export default function HomeScreen(){
                     <Service icon={RewardsIcon} serviceName="Rewards" />
                 </div>
             </div>
-            <div className="w-full h-1 bg-[#C1C6C5]"></div>
+            <div className="w-full h-1 bg-[#F3F3F3]"></div>
             <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3 mx-4">
                 <div className="min-w-[38%] sm:min-w-[36%] md:min-w-[33%] lg:min-w-[30%] ">
                     <img src={WashingHandsImage} alt="Washing hands" className="w-full" />
@@ -209,24 +209,24 @@ export default function HomeScreen(){
                     </Button>
                 </div>
             </div>
-            <div className="w-full h-1 bg-[#C1C6C5]"></div>
+            <div className="w-full h-1 bg-[#F3F3F3]"></div>
             <div className="mx-4 my-3">
                 <div className="flex justify-between items-center">
                     <div className="text-base sm:text-lg md:text-xl font-semibold">Beautician blogs</div>
-                    <div className="relative flex flex-col items-center rounded-lg border border-1 border-light-grey-text">
+                    <div className="relative flex flex-col items-center rounded-2xl border border-1 border-light-grey-text">
                         <button 
-                            className="px-2 min-w-[5rem] h-6 box-border flex items-center justify-between gap-[0.5px] text-xs rounded-lg tracking-wider border-light-grey-text duration-300" 
-                            onClick={() => setIsOpen((prev) => !prev)}
+                            className="px-2 min-w-[5rem] h-6 box-border flex items-center justify-between gap-[0.5px] text-xs rounded-2xl tracking-wider border-light-grey-text duration-300" 
+                            onClick={() => setIsDDOpen((prev) => !prev)}
                         >
                             {selectedOption}
-                            {!isOpen 
+                            {!isDDOpen 
                                 ? <AiFillCaretDown className="text-[10px]" />
                                 : <AiFillCaretUp className="text-[10px]" />
                             }
                         </button>
-                        {isOpen && <div className="absolute top-7 flex flex-col items-start rounded-lg w-full bg-white">
+                        {isDDOpen && <div className="absolute top-7 flex flex-col items-start rounded-lg w-full bg-white">
                                 {list.map((item, index) => 
-                                    <option key={index} value={item} className="w-full p-1 rounded-md text-xs hover:bg-border cursor-pointer" onClick={(e) => {setSelectedOption(e.target.value); setIsOpen(false)}}>{item}</option>
+                                    <option key={index} value={item} className="w-full p-1 rounded-md text-xs hover:bg-border cursor-pointer" onClick={(e) => {setSelectedOption(e.target.value); setIsDDOpen(false)}}>{item}</option>
                                 )}
                             </div>
                         }

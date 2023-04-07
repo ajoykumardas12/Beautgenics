@@ -3,6 +3,7 @@ import LandingPage from './screens/LandingPage'
 import SignInPage from './screens/SignInPage'
 import Navbar from './components/Navbar'
 import HomeScreen from './screens/HomeScreen'
+import Dashboard from './screens/Dashboard'
 import { Routes,
   Route,
   useLocation,
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/home" element={<HomeScreen />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </>
