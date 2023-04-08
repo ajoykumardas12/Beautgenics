@@ -122,7 +122,7 @@ function Service(props){
             <div className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 flex items-center justify-center rounded-full bg-brand hover:bg-brand/90 cursor-pointer">
                 <img src={props.icon} alt={props.icon} className="w-[60%] h-[60%]" />
             </div>
-            <div className="text-[0.6rem] md:text-xs cursor-pointer line-clamp-1">{props.serviceName}</div>
+            <div className="text-[0.6rem] md:text-xs cursor-pointer text-center line-clamp-1">{props.serviceName}</div>
         </div>
     )
 }

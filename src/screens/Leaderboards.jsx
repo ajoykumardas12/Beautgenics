@@ -179,11 +179,11 @@ export default function leaderboards(){
                 <div className="flex flex-col justify-center w-full my-5 text-[#5E6265]">
                     <div className="flex items-center ml-4 gap-4 md:ml-0 md:justify-evenly text-xs mb-3">
                         <div className="flex items-center justify-center gap-1">
-                            <BsCircleFill className="text-brand"/>
+                            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-[#4EB4F9] to-[#4EE7E8]"></div>
                             Your achievement
                         </div>
                         <div className="flex items-center justify-center gap-1">
-                            <BsCircleFill className="text-[#ED9013]"/>
+                            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-[#8C1AFA] to-[#D322FF]"></div>
                             Scalett Johnson
                         </div>
                     </div>
