@@ -1,5 +1,6 @@
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
+import { AiFillEye } from "react-icons/ai";
 import Logo from "../assets/Logo.svg";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
@@ -20,7 +21,10 @@ export default function SignInPage(){
                 </div>
                 <div className="flex flex-col justify-center">
                     <input type="email" name="email" id="" placeholder="Email address/Phone" className="h-12 w-full flex items-center pl-3 text-secondary-text outline-none border border-1 border-[#E0E0E0] rounded-sm mt-5" />
-                    <input type="password" name="password" id="" placeholder="Enter your password" className="h-12 w-full flex items-center pl-3 text-secondary-text outline-none border border-1 border-[#E0E0E0] rounded-sm mt-4" />
+                    <div className="relative mt-4">
+                        <input type="password" name="password" id="" placeholder="Enter your password" className="h-12 w-full flex items-center pl-3 text-secondary-text outline-none border border-1 border-[#E0E0E0] rounded-sm" />
+                        <AiFillEye className="absolute right-3 top-[50%] -translate-y-[50%] text-2xl text-[#00000099] cursor-pointer" />
+                    </div>
                     <div className="text-xs text-brand self-end mt-3 cursor-pointer">
                         Forgot password?
                     </div>
@@ -29,7 +33,7 @@ export default function SignInPage(){
                         <label htmlFor="">Remember my login info</label>
                     </div>
                     <Link to="/home">
-                        <Button cls="h-12 w-full bg-brand text-white mt-7 rounded-md">
+                        <Button cls="h-12 w-full bg-brand hover:bg-brand/90 text-white mt-7 rounded-md">
                             Sign in
                         </Button>
                     </Link>

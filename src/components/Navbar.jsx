@@ -9,6 +9,7 @@ import { RxDashboard } from "react-icons/rx";
 import { GrRefresh } from "react-icons/gr";
 import ProfileImage from "../assets/userImage.svg";
 import { Link, useLocation } from "react-router-dom";
+import { BsDot, BsGlobe } from "react-icons/bs";
 
 function titleCase(str) {
     return str.charAt(1).toUpperCase() + str.slice(2);
@@ -32,13 +33,13 @@ function NavOptions(props){
                 <div className="text-lg md:text-lg font-medium">Sarika Seghal</div>
                 <div className="text-sm md:text-base text-light-grey-text">Senior beauty analyst</div>
             </div>
-            <div className="flex items-center gap-1 pl-2.5 pr-1 py-2 border-y-[0.5px] border-brand">
+            <div className="flex items-center gap-1 pl-2.5 pr-1 py-2 border-y-[0.5px] border-brand/50">
                 <GoLocation className="text-brand" />
                 <div className="line-clamp-1 text-xs md:text-sm">
                     Health & Glow, 18th Main Road, HSR, Sector  II 
                 </div>
             </div>
-            <div className="pb-1 border-b-[0.5px] border-brand md:text-base">
+            <div className="pb-1 border-b-[0.5px] border-brand/50 md:text-base">
                 <div className="ml-3 mt-2 mb-1 text-light-grey-text text-xs">QUICK ACCESS</div>
                 <QuickOptions path="/home" handleIsNavOpen={props.handleIsNavOpen}> <AiOutlineHome />Home </QuickOptions>
                 <QuickOptions > <BiShoppingBag />Sales </QuickOptions>
@@ -56,6 +57,15 @@ function NavOptions(props){
             <div className="mb-1">
                 <QuickOptions> <AiOutlineSync />Sync now </QuickOptions>
                 <QuickOptions> <GrRefresh />Refresh products </QuickOptions>
+            </div>
+            <div className="flex items-center justify-between text-[13px] text-[#5E6265] mx-3 my-4">
+                <div className="flex items-center cursor-pointer">
+                    <BsGlobe />English (US)
+                </div>
+                <BsDot />
+                <div className="cursor-pointer">Privacy</div>
+                <BsDot />
+                <div className="cursor-pointer">Terms & Cond.</div>
             </div>
         </div>
     )

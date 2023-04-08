@@ -1,11 +1,16 @@
 import React from "react";
+import SplashScreen from '../screens/SplashScreen';
 import Logo from "../assets/Logo.svg";
 import Button from "../components/Button";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-export default function LandingPage() {
+export default function LandingPage(props) {
+    if(props.splashShown == false){
+        return <SplashScreen />
+    }
+
     return (
         <div className="w-full xs:w-[85%] sm:w-[75%] md:w-[60%] lg:w-[50%] flex flex-col mt-24 font-roboto">
             <img className="h-16 w-16 mx-3" src={Logo} alt="Logo" />
@@ -20,11 +25,11 @@ export default function LandingPage() {
                 </div>
                 <div className="text-light-grey-text mb-3">Let’s get started...</div>
                 <div className="flex flex-col items-center justify-center gap-3">
-                    <Button cls="w-full h-14 bg-button-grey border-2 border-[#E0E0E0]">
+                    <Button cls="w-full h-14 bg-button-grey hover:bg-button-grey/20 border-2 border-[#E0E0E0]">
                         <FcGoogle />
                         Continue with Google
                     </Button>
-                    <Button cls="w-full h-14 bg-black border-2 border-[#E0E0E0] text-white">
+                    <Button cls="w-full h-14 bg-black hover:bg-black/90 border-2 border-[#E0E0E0] text-white">
                         <BsApple />
                         Continue with apple
                     </Button>
@@ -34,5 +39,5 @@ export default function LandingPage() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

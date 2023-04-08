@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LandingPage from './screens/LandingPage'
 import SignInPage from './screens/SignInPage'
 import Navbar from './components/Navbar'
@@ -13,15 +13,21 @@ import { Routes,
 function App() {
   const path = useLocation();
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const toggleIsNavOpen = () => {setIsNavOpen(!isNavOpen)}
+  const toggleIsNavOpen = () => {setIsNavOpen(!isNavOpen)};
+  const [splashShown, setSplashShown] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashShown(true);
+    }, 2000);
+  }, []);
 
   return (
     <>
       {(path.pathname !== "/" && path.pathname !== "/login") && <Navbar isNavOpen={isNavOpen} handleIsNavOpen={toggleIsNavOpen} /> }
       <div className={`flex items-center justify-center ${isNavOpen && "opacity-10 bg-slate-300" }`}>
         <Routes>
-          {/* <Route path="/" render={ ( props ) => ( props.location.pathname !== "/") && <Navbar /> } /> */}
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage splashShown={splashShown} />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/home" element={<HomeScreen />} />
           <Route path="/dashboard" element={<Dashboard />} />
